@@ -12,7 +12,7 @@ Tested with FF, Chrome and Safari on OSX.
 
 ##Demo
 
-See <a href="https://rawgit.com/SekibOmazic/so-dashboard/master/index.html">Live demo</a>
+See <a href="http://rawgit.com/SekibOmazic/so-dashboard/master/index.html">Live demo</a>
 
 
 
