@@ -10,6 +10,11 @@ I needed it for my other project and couldn't wait it to be done by angular-grid
 
 Tested with FF, Chrome and Safari on OSX.  
 
+##Demo
+
+See <a href="https://rawgit.com/SekibOmazic/so-dashboard/master/index.html">Live demo</a>
+
+
 
 ## TO DO
 
