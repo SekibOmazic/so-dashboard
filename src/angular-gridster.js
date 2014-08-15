@@ -820,6 +820,8 @@ angular.module('gridster', [])
 						minLeft = 0,
 						maxLeft = gridster.curWidth - 1;
 
+					var originalCol, originalRow;
+
 					function mouseDown(e) {
 						lastMouseX = e.pageX;
 						lastMouseY = e.pageY;
@@ -828,6 +830,9 @@ angular.module('gridster', [])
 						elmY = parseInt($el.css('top'));
 						elmW = parseInt($el.css('width'));
 						elmH = parseInt($el.css('height'));
+
+						originalCol = item.col;
+						originalRow = item.row;
 
 						dragStart(e);
 
@@ -921,8 +926,11 @@ angular.module('gridster', [])
 						}
 						gridster.movingItem = null;
 
+						var itemMoved = (originalCol !== item.col || originalRow !== item.row);
+
 						scope.$apply(function() {
-							if (gridster.draggable && gridster.draggable.stop) {
+							// callback only if item really changed position
+							if (itemMoved && gridster.draggable && gridster.draggable.stop) {
 								gridster.draggable.stop(event, $el, options);
 							}
 						});
@@ -963,6 +971,7 @@ angular.module('gridster', [])
 						var minHeight = gridster.curRowHeight - gridster.margins[0],
 							minWidth = gridster.curColWidth - gridster.margins[1];
 
+						var originalWidth, originalHeight;
 
 						function mouseDown(e) {
 							// Get the current mouse position. 
@@ -974,6 +983,9 @@ angular.module('gridster', [])
 							elmY = parseInt($el.css('top'));
 							elmW = parseInt($el.css('width'));
 							elmH = parseInt($el.css('height'));
+
+							originalWidth = item.sizeX;
+							originalHeight = item.sizeY;
 
 							resizeStart(e);
 
@@ -1104,9 +1116,11 @@ angular.module('gridster', [])
 							item.setSizeY(item.sizeY);
 							item.setSizeX(item.sizeX);
 
+							var itemResized = (originalWidth !== item.sizeX || originalHeight !== item.sizeY);
+
 							scope.$apply(function() {
-								// callback
-								if (gridster.resizable && gridster.resizable.stop) {
+								// callback only if item really changed size
+								if (itemResized && gridster.resizable && gridster.resizable.stop) {
 									gridster.resizable.stop(e, $el, options); // options is the item model
 								}
 							});
