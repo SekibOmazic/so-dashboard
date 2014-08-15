@@ -818,7 +818,7 @@ angular.module('gridster', [])
 						minTop = 0,
 						maxTop = 9999,
 						minLeft = 0,
-						maxLeft = gridster.curWidth;
+						maxLeft = gridster.curWidth - 1;
 
 					function mouseDown(e) {
 						lastMouseX = e.pageX;
@@ -957,7 +957,7 @@ angular.module('gridster', [])
 							minTop = 0,
 							maxTop = 9999,
 							minLeft = 0,
-							maxLeft = gridster.curWidth;
+							maxLeft = gridster.curWidth - 1;
 
 
 						var minHeight = gridster.curRowHeight - gridster.margins[0],
