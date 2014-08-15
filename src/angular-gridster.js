@@ -399,6 +399,8 @@ angular.module('gridster', [])
 				}
 			}
 			this.gridHeight = Math.min(this.maxRows, maxHeight);
+			// angular-gridster issue #99
+			//this.gridHeight = this.maxRows - maxHeight > 0 ? Math.min(this.maxRows, maxHeight) : Math.max(this.maxRows, maxHeight);
 		};
 
 		/**
@@ -816,7 +818,7 @@ angular.module('gridster', [])
 						minTop = 0,
 						maxTop = 9999,
 						minLeft = 0,
-						maxLeft = gridster.width;
+						maxLeft = gridster.curWidth;
 
 					function mouseDown(e) {
 						lastMouseX = e.pageX;
@@ -955,7 +957,7 @@ angular.module('gridster', [])
 							minTop = 0,
 							maxTop = 9999,
 							minLeft = 0,
-							maxLeft = gridster.width;
+							maxLeft = gridster.curWidth;
 
 
 						var minHeight = gridster.curRowHeight - gridster.margins[0],
