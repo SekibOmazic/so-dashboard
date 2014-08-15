@@ -837,12 +837,11 @@ angular.module('gridster', [])
 					}
 
 					function mouseMove(e) {
-						// We always record the current mouse position.
+						// Get the current mouse position.
 						mouseX = e.pageX;
 						mouseY = e.pageY;
 
-						// Record the relative mouse movement and 
-						// add any previously stored & ignored offset to the calculations.
+						// Get the deltas
 						var diffX = mouseX - lastMouseX + mOffX;
 						var diffY = mouseY - lastMouseY + mOffY;
 						mOffX = mOffY = 0;
@@ -851,7 +850,6 @@ angular.module('gridster', [])
 						lastMouseX = mouseX;
 						lastMouseY = mouseY;
 
-						// Bounds check left-right...
 						var dX = diffX,
 							dY = diffY;
 						if (elmX + dX < minLeft) {
@@ -860,7 +858,6 @@ angular.module('gridster', [])
 							mOffX = (dX - (diffX = maxLeft - elmX - elmW));
 						}
 
-						// ...and up-down.
 						if (elmY + dY < minTop) {
 							mOffY = (dY - (diffY = minTop - elmY));
 						} else if (elmY + elmH + dY > maxTop) {
@@ -1010,8 +1007,7 @@ angular.module('gridster', [])
 							mouseX = e.pageX;
 							mouseY = e.pageY;
 
-							// Record the relative mouse movement and 
-							// add any previously stored & ignored offset to the calculations.
+							// Get the deltas
 							var diffX = mouseX - lastMouseX + mOffX;
 							var diffY = mouseY - lastMouseY + mOffY;
 							mOffX = mOffY = 0;
@@ -1020,8 +1016,6 @@ angular.module('gridster', [])
 							lastMouseX = mouseX;
 							lastMouseY = mouseY;
 
-							// If the hClass is one of the resize handles, 
-							// resize one or two dimensions.
 							var dY = diffY,
 								dX = diffX;
 
