@@ -860,15 +860,19 @@ angular.module('gridster', [])
 						var dX = diffX,
 							dY = diffY;
 						if (elmX + dX < minLeft) {
-							mOffX = (dX - (diffX = minLeft - elmX));
+							diffX = minLeft - elmX;
+							mOffX = dX - diffX;
 						} else if (elmX + elmW + dX > maxLeft) {
-							mOffX = (dX - (diffX = maxLeft - elmX - elmW));
+							diffX = maxLeft - elmX - elmW;
+							mOffX = dX - diffX;
 						}
 
 						if (elmY + dY < minTop) {
-							mOffY = (dY - (diffY = minTop - elmY));
+							diffY = minTop - elmY;
+							mOffY = dY - diffY;
 						} else if (elmY + elmH + dY > maxTop) {
-							mOffY = (dY - (diffY = maxTop - elmY - elmH));
+							diffY = maxTop - elmY - elmH;
+							mOffY = dY - diffY;
 						}
 						elmX += diffX;
 						elmY += diffY;
@@ -1035,35 +1039,43 @@ angular.module('gridster', [])
 
 							if (hClass.indexOf('n') >= 0) {
 								if (elmH - dY < minHeight) {
-									mOffY = (dY - (diffY = elmH - minHeight));
+									diffY = elmH - minHeight;
+									mOffY = dY - diffY;
 								} else if (elmY + dY < minTop) {
-									mOffY = (dY - (diffY = minTop - elmY));
+									diffY = minTop - elmY;
+									mOffY = dY - diffY;
 								}
 								elmY += diffY;
 								elmH -= diffY;
 							}
 							if (hClass.indexOf('s') >= 0) {
 								if (elmH + dY < minHeight) {
-									mOffY = (dY - (diffY = minHeight - elmH));
+									diffY = minHeight - elmH;
+									mOffY = dY - diffY;
 								} else if (elmY + elmH + dY > maxTop) {
-									mOffY = (dY - (diffY = maxTop - elmY - elmH));
+									diffY = maxTop - elmY - elmH;
+									mOffY = dY - diffY;
 								}
 								elmH += diffY;
 							}
 							if (hClass.indexOf('w') >= 0) {
 								if (elmW - dX < minWidth) {
-									mOffX = (dX - (diffX = elmW - minWidth));
+									diffX = elmW - minWidth;
+									mOffX = dX - diffX;
 								} else if (elmX + dX < minLeft) {
-									mOffX = (dX - (diffX = minLeft - elmX));
+									diffX = minLeft - elmX;
+									mOffX = dX - diffX;
 								}
 								elmX += diffX;
 								elmW -= diffX;
 							}
 							if (hClass.indexOf('e') >= 0) {
 								if (elmW + dX < minWidth) {
-									mOffX = (dX - (diffX = minWidth - elmW));
+									diffX = minWidth - elmW;
+									mOffX = dX - diffX;
 								} else if (elmX + elmW + dX > maxLeft) {
-									mOffX = (dX - (diffX = maxLeft - elmX - elmW));
+									diffX = maxLeft - elmX - elmW;
+									mOffX = dX - diffX;
 								}
 								elmW += diffX;
 							}
