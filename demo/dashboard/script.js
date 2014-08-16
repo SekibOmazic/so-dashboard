@@ -6,7 +6,7 @@ angular.module('app')
 			margins: [20, 20],
 			columns: 4,
 			draggable: {
-				//handle: 'h3',
+				handle: 'h3',
 
 				stop: function(event, element, widget) {
 					//event.stopPropagation();

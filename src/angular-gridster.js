@@ -944,9 +944,13 @@ angular.module('gridster', [])
 					}
 
 					if (gridster.draggable.enabled) {
-						$el.bind('mousedown', mouseDown);
+						if (gridster.draggable.handle) {
+							var dragHandle = $el.find(gridster.draggable.handle);
+							dragHandle.bind('mousedown', mouseDown);
+						} else {
+							$el.bind('mousedown', mouseDown);
+						}
 					}
-
 
 				}
 
@@ -978,6 +982,16 @@ angular.module('gridster', [])
 						var originalWidth, originalHeight;
 
 						function mouseDown(e) {
+							/*
+              USE THIS IF SOME BROWSERS DON'T SUPPORT e.pageX
+              var pageX = e.pageX;
+              var pageY = e.pageY;
+              if (pageX === undefined) {
+                pageX = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+                pageY = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+              }
+              */
+
 							// Get the current mouse position. 
 							lastMouseX = e.pageX;
 							lastMouseY = e.pageY;
