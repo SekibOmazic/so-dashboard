@@ -18,4 +18,4 @@ See <a href="http://rawgit.com/SekibOmazic/so-dashboard/master/index.html">Live 
 
 ## TO DO
 
-~~ Add an option handle to gridster-item (like jQuery-UI)~~
+~~Add an option handle to gridster-item (like jQuery-UI)~~
