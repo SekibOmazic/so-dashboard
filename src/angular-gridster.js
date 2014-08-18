@@ -484,10 +484,10 @@ angular.module('gridster', [])
 
 						return {
 							display: 'block',
-							height: gridster.movingItem.sizeY * gridster.curRowHeight - gridster.margins[0],
-							width: gridster.movingItem.sizeX * gridster.curColWidth - gridster.margins[1],
-							top: gridster.movingItem.row * gridster.curRowHeight + (gridster.outerMargin ? gridster.margins[0] : 0),
-							left: gridster.movingItem.col * gridster.curColWidth + (gridster.outerMargin ? gridster.margins[1] : 0)
+							height: (gridster.movingItem.sizeY * gridster.curRowHeight - gridster.margins[0]) + 'px',
+							width: (gridster.movingItem.sizeX * gridster.curColWidth - gridster.margins[1]) + 'px',
+							top: (gridster.movingItem.row * gridster.curRowHeight + (gridster.outerMargin ? gridster.margins[0] : 0)) + 'px',
+							left: (gridster.movingItem.col * gridster.curColWidth + (gridster.outerMargin ? gridster.margins[1] : 0)) + 'px'
 						};
 					};
 
