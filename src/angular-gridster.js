@@ -482,13 +482,17 @@ angular.module('gridster', [])
 							};
 						}
 						var item = gridster.movingItem;
-						return {
+						var itemStyle = {
 							display: 'block',
 							height: item.sizeY * gridster.curRowHeight - gridster.margins[0],
 							width: item.sizeX * gridster.curColWidth - gridster.margins[1],
 							top: gridster.movingItem.row * gridster.curRowHeight + (gridster.outerMargin ? gridster.margins[0] : 0),
 							left: gridster.movingItem.col * gridster.curColWidth + (gridster.outerMargin ? gridster.margins[1] : 0)
 						};
+            
+            console.log(itemStyle);
+            
+            return itemStyle;
 					};
 
 					var refresh = function() {
