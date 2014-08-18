@@ -839,7 +839,7 @@ angular.module('gridster', [])
 						$document.bind('mousemove', mouseMove);
 						$document.bind('mouseup', mouseUp);
 
-						//e.preventDefault();
+						e.preventDefault();
 						e.stopPropagation();
 					}
 
@@ -885,6 +885,7 @@ angular.module('gridster', [])
 
 						drag(e);
 
+						e.preventDefault();
 						e.preventDefault();
 					}
 
@@ -1010,7 +1011,7 @@ angular.module('gridster', [])
 							$document.bind('mousemove', mouseMove);
 							$document.bind('mouseup', mouseUp);
 
-							//e.preventDefault();
+							e.preventDefault();
 
 							// event was on resize handle. Don't propagate it to the parent
 							e.stopPropagation();
