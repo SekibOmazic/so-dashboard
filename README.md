@@ -8,7 +8,7 @@ This fork removes jQuery and jQuery-UI dependencies and adds custom Drag 'n' Res
 I needed it for my other project and couldn't wait it to be done by angular-gridster team. 
 
 
-Tested with FF, Chrome, Safari on OSX and FF, Chrome IE9 on Windows7.
+Tested with FF, Chrome, Safari on OSX and FF, Chrome, IE9 on Windows7.
 
 ##Demo
 
