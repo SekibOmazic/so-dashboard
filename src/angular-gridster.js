@@ -490,7 +490,7 @@ angular.module('gridster', [])
 							left: gridster.movingItem.col * gridster.curColWidth + (gridster.outerMargin ? gridster.margins[1] : 0)
 						};
             
-            console.log(itemStyle);
+            console.log(itemStyle.display, itemStyle.height, itemStyle.width, itemStyle.top, itemStyle.left);
             
             return itemStyle;
 					};
