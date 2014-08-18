@@ -481,18 +481,14 @@ angular.module('gridster', [])
 								display: 'none'
 							};
 						}
-						var item = gridster.movingItem;
-						var itemStyle = {
+
+						return {
 							display: 'block',
-							height: item.sizeY * gridster.curRowHeight - gridster.margins[0],
-							width: item.sizeX * gridster.curColWidth - gridster.margins[1],
+							height: gridster.movingItem.sizeY * gridster.curRowHeight - gridster.margins[0],
+							width: gridster.movingItem.sizeX * gridster.curColWidth - gridster.margins[1],
 							top: gridster.movingItem.row * gridster.curRowHeight + (gridster.outerMargin ? gridster.margins[0] : 0),
 							left: gridster.movingItem.col * gridster.curColWidth + (gridster.outerMargin ? gridster.margins[1] : 0)
 						};
-            
-            console.log(itemStyle.display, itemStyle.height, itemStyle.width, itemStyle.top, itemStyle.left);
-            
-            return itemStyle;
 					};
 
 					var refresh = function() {
@@ -572,7 +568,7 @@ angular.module('gridster', [])
 							$elem.addClass('gridster-loaded');
 						}
 
-						// TODO
+						// TODO: 
 						//var _height = $elem.prop('offsetHeight');
 						//scope.$broadcast('gridster-resized', [width, _height]);
 					}
@@ -827,6 +823,10 @@ angular.module('gridster', [])
 					var originalCol, originalRow;
 
 					function mouseDown(e) {
+						if (e.currentTarget !== e.target) {
+							return;
+						}
+
 						lastMouseX = e.pageX;
 						lastMouseY = e.pageY;
 
@@ -887,10 +887,12 @@ angular.module('gridster', [])
 							'left': elmX + 'px'
 						});
 
+						e.preventDefault();
+						e.stopPropagation();
 						drag(e);
 
-						e.preventDefault();
-						e.preventDefault();
+						//e.stopPropagation();
+						//e.preventDefault();
 					}
 
 					function mouseUp(e) {
